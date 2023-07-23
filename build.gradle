@@ -6,6 +6,15 @@ repositories {
     mavenCentral()
 }
 
+group 'guru.qa'
+version '1.0'
+
 dependencies {
-    testImplementation ()
+    testImplementation (
+            'org.junit.jupiter:junit-jupiter:5.9.3',
+    )
+}
+
+test {
+    useJUnitPlatform()
 }
