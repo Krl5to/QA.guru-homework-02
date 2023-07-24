@@ -36,7 +36,7 @@ public class PracticeFormTests {
         $("[for=hobbies-checkbox-1]").click();
         $("[for=hobbies-checkbox-2]").click();
         $("[for=hobbies-checkbox-3]").click();
-        $("#uploadPicture").uploadFile(new File("D:\\Sample\\Cat.jpg"));
+        $("#uploadPicture").uploadFile(new File("src\\test\\resources"));
         $("#currentAddress").setValue("India");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
