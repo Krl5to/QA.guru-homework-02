@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.CONTROL;
 import static org.openqa.selenium.Keys.ENTER;
@@ -38,9 +39,9 @@ public class PracticeFormTests {
         $("#uploadPicture").uploadFile(new File("D:\\Sample\\Cat.jpg"));
         $("#currentAddress").setValue("India");
         $("#state").click();
-        $("#state > div > div.css-1hwfws3 > div.css-1wa3eu0-placeholder").press("U","t","t","a").sendKeys(ENTER);
-        $("#city").press("A","g","r","a").sendKeys(ENTER);
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
-        sleep(1000000000);
     }
 }
