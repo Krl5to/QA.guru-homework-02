@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.CONTROL;
@@ -42,5 +43,17 @@ public class PracticeFormTests {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
+        $("tbody tr:nth-child(1) td:nth-child(2)").shouldHave(text("Petr Ivanov"));
+        $("tbody tr:nth-child(2) td:nth-child(2)").shouldHave(text("Petr_Ivanov@mail.ru"));
+        $("tbody tr:nth-child(3) td:nth-child(2)").shouldHave(text("Male"));
+        $("tbody tr:nth-child(4) td:nth-child(2)").shouldHave(text("0123456789"));
+        $("tbody tr:nth-child(5) td:nth-child(2)").shouldHave(text("15 May,2002"));
+        $("tbody tr:nth-child(6) td:nth-child(2)").shouldHave(text("Computer Science"));
+        $("tbody tr:nth-child(7) td:nth-child(2)").shouldHave(text("Sports, Reading, Music"));
+        $("tbody tr:nth-child(8) td:nth-child(2)").shouldHave(text("Cat.jpg"));
+        $("tbody tr:nth-child(9) td:nth-child(2)").shouldHave(text("India"));
+        $("tbody tr:nth-child(10) td:nth-child(2)").shouldHave(text("NCR Delhi"));
+        $("#closeLargeModal").click();
     }
 }
