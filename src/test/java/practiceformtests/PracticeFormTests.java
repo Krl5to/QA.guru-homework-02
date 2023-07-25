@@ -1,10 +1,8 @@
-package PracticeFormTests;
+package practiceformtests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -16,6 +14,7 @@ public class PracticeFormTests {
     @BeforeAll
     static void beforeAll() {
 //        Configuration.browser = "firefox";
+        Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
     }
@@ -36,7 +35,7 @@ public class PracticeFormTests {
         $("[for=hobbies-checkbox-1]").click();
         $("[for=hobbies-checkbox-2]").click();
         $("[for=hobbies-checkbox-3]").click();
-        $("#uploadPicture").uploadFile(new File("src\\test\\resources"));
+        $("#uploadPicture").uploadFromClasspath("Cat.jpg");
         $("#currentAddress").setValue("India");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
